@@ -1,0 +1,605 @@
+@import "tool-roam.css";
+@import "tool-setmenu.css";
+@import "tool-draw.css";
+@import "tool-tooltip.css";
+@import "featureInfo.css";
+/*tools工具栏样式*/
+.bosgeo-tool {
+    position: absolute;
+    bottom: 10px;
+    left: 754px;
+    z-index: 9;
+    height: 50px;
+    display: flex;
+}
+.bosgeo-tool .bosgeo-internal {
+    width: 10px;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+}
+.bosgeo-tool .bosgeo-itemWrapper {
+    background: #2a333e;
+    display: flex;
+}
+.bosgeo-tool .bosgeo-itemWrapper .bosgeo-item {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin: 10px 17px;
+    cursor: pointer;
+    border: 1px solid #233953;
+}
+.bosgeo-tool .bosgeo-itemWrapper .bosgeo-item .bosgeo-icon {
+    font-size: 22px;
+    padding: 4px 5px;
+    color: white;
+    display: inline-block;
+}
+/*弹出层样式*/
+.bosgeo-popup {
+    position: absolute;
+    bottom: 80px;
+    width: 350px;
+    background: rgba(12, 15, 18, 0.9);
+    border-radius: 4px;
+    border: 1px solid #233953;
+    z-index: 9;
+    display: none;
+    color: #c8d4e2;
+}
+
+/*弹出层统一样式*/
+.bosgeo-popup .bosgeo-firstWrapper {
+    margin: 12px;
+}
+.bosgeo-popup .bosgeo-header {
+    width: 350px;
+    height: 39px;
+    background: #000000;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid #233953;
+    display: flex;
+}
+.bosgeo-popup .bosgeo-header .bosgeo-image {
+    width: 12px;
+    height: 12px;
+    margin: 14px 10px;
+    background: linear-gradient(270deg, #338eff 0%, rgba(51, 142, 255, 0) 100%);
+}
+.bosgeo-popup .bosgeo-header .bosgeo-name {
+    height: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 18px;
+    margin: 10px 0 12px 8px;
+}
+.bosgeo-popup .bosgeo-header .bosgeo-close {
+    position: absolute;
+    right: 16px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+/*最小字体支持12px，因此放大字体缩小后，将父元素的margin相应减少5*/
+.bosgeo-popup .bosgeo-header .bosgeo-icon {
+    font-size: 20px;
+    display: inline-block;
+    transform: scale(0.5);
+}
+
+.bosgeo-float-panel {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    border-radius: 6px;
+}
+.bosgeo-route-select-panel {
+    background-color: #ffffff;
+}
+.bosgeo-route-select-panel .bosgeo-item {
+    display: block;
+    padding: 10px;
+    color: #666;
+}
+.bosgeo-route-select-panel .bosgeo-icon {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 50%;
+    color: #ffffff;
+}
+.bosgeo-route-select-panel .bosgeo-start-icon {
+    background-color: #3fb230;
+}
+.bosgeo-route-select-panel .bosgeo-end-icon {
+    background-color: #ef3e2a;
+}
+
+.bosgeo-route-instruction-panel {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 60px;
+    z-index: 10;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #fff;
+    opacity: 0.8;
+}
+
+.bosgeo-instructionInfo {
+    font-weight: bold;
+}
+
+.bosgeo-html-layer-collection {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%; /* 不设置宽度会造成字体默认竖直排列 */
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    pointer-events: none;
+}
+
+.bosgeo-html-layer {
+    position: absolute;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.bosgeo-html-pointContainer {
+    display: flex;
+}
+.bosgeo-html-pointIcon {
+    display: inline-block;
+    width: 48px;
+    height: 56px;
+    background: url("../images/pointIcon.png") no-repeat center;
+    background-size: 100% 100%;
+    position: relative;
+    z-index: 1;
+}
+.bosgeo-html-pointText {
+    display: block;
+    max-width: 300px;
+    height: 51px;
+    background: url("../images/pointText.png") no-repeat center;
+    background-size: 100% 100%;
+    margin-left: -40px;
+    padding: 12px 24px 0 34px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+.bosgeo-pointContainer {
+    position: relative;
+}
+
+.bosgeo-pointText {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    overflow: hidden;
+
+    max-width: 184px;
+    min-width: 120px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+
+    padding: 0px 18px 2px 18px;
+    background: url("../images/pointText.png") no-repeat center;
+    background-size: 100% 100%;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+.bosgeo-pointIcon {
+    position: absolute;
+    top: 42.4px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    width: 9px;
+    height: 97px;
+    background: url("../images/pointIcon.png") no-repeat center;
+    background-size: 100% 100%;
+}
+
+.bosgeo-overView {
+    display: none;
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    width:200px;
+    height:200px;
+    border:solid 1.9px rgb(54, 54, 54);
+}
+.bosgeo-mapCoordinates {
+    z-index: 888;
+    position: absolute;
+    bottom: -2px;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+    height: 29px;
+    line-height: 29px;
+}
+.bosgeo-LabelPlot-container {
+    position: absolute;
+    text-align: center;
+    padding: 0 6px;
+    height: 20px;
+    line-height: 20px;
+    z-index: 999;
+    color: white;
+    background-color: black;
+    font-size:12px;
+    font-family:"Microsoft Yahei";
+    /*设置文字不能被选中     以下为css样式*/
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+/* 点标签样式 */
+.pointBackg1{
+    position: relative;
+    background: url("../images/label/普通标记样式1.png") no-repeat center;
+    background-size:contain;
+    width: 164px;
+    height: 137px;
+    overflow: hidden;
+  }
+  
+  .pointText{
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    text-align: center;
+    font-size: 13px;
+    transform:translateX(-50%)
+  }
+  
+  .pointText1{
+    left: 50%;
+    top: 0%;
+    line-height: 40px;
+    color: rgba(200, 212, 226, 1);
+  }
+  
+  .pointBackg2{
+    position: relative;
+    background: url("../images/label/普通标记样式2.png") no-repeat center;
+    background-size: contain;
+    width: 174px;
+    height: 138px;
+  }
+  
+  .pointText2{
+    left: 50%;
+    top: 0%;
+    width: 100%;
+    line-height: 30px;
+    color: rgba(0, 251, 207, 1);
+  }
+  
+  .pointBackg3{
+    position: relative;
+    background: url("../images/label/普通标记样式3.png") no-repeat center;
+    background-size: contain;
+    width: 194px;
+    height: 102px;
+  }
+  
+  .pointText3{
+    left: 60%;
+    top: 1%;
+    width: 130px;
+    line-height: 32px;
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .pointBackg4{
+    position: relative;
+    background: url("../images/label/普通标记样式4.png") no-repeat center;
+    background-size: contain;
+    width: 223px;
+    height: 115px;
+  }
+  
+  .pointText4{
+    left: 60%;
+    top: 0%;
+    width: 130px;
+    line-height: 34px;
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  
+  /* 标题标签样式 */
+  .bosgeo-titleBack1 {
+    position: relative;
+    width: 290px;
+    height: 248px;
+    background: url("../images/label/标题样式1.png") no-repeat center;
+    background-size: contain;
+  }
+  .bosgeo-titleBack2 {
+    position: relative;
+    width: 282px;
+    height: 214px;
+    background: url("../images/label/标题样式2.png") no-repeat center;
+    background-size: contain;
+  }
+  .bosgeo-titleBack3 {
+    position: relative;
+    width: 282px;
+    height: 213px;
+    background: url("../images/label/标题样式3.png") no-repeat center;
+    background-size: contain;
+  }
+  .bosgeo-titleBack4 {
+    position: relative;
+    width: 282px;
+    height: 209px;
+    background: url("../images/label/标题样式4.png") no-repeat center;
+    background-size: contain;
+  }
+  .bosgeo-title_name {
+    position: absolute;
+    left: 4%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+  }
+  .bosgeo-title_content {
+    position: absolute;
+    left: 4%;
+    width: 264px;
+    height: 54px;
+    font-size: 8px;
+    font-size: 10px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    overflow: hidden;
+    background-color: transparent;
+    border: none;
+    text-overflow: ellipsis;
+    resize: none;
+    word-break:break-all;
+    word-wrap:break-word;
+  }
+  
+  .bosgeo-title_name1 {
+    top: 2%;
+    left: 5%;
+    width: 240px;
+    color: rgba(41, 234, 251, 1);
+  }
+  .bosgeo-title_content1 {
+    top: 21%;
+    left: 5%;
+    color: rgba(200, 212, 226, 1);
+  }
+  
+  .bosgeo-title_name2 {
+    top: 4%;
+    color: rgba(200, 212, 226, 1);
+  }
+  .bosgeo-title_content2 {
+    top: 20%;
+    color: rgba(200, 212, 226, 1);
+  }
+  
+  .bosgeo-title_name3 {
+    top: 2%;
+    color: rgba(200, 212, 226, 1);
+  }
+  .bosgeo-title_content3 {
+    top: 20%;
+    color: rgba(200, 212, 226, 1);
+  }
+  
+  .bosgeo-title_name4 {
+    top: 2%;
+    color: rgba(255, 255, 255, 1);
+  }
+  .bosgeo-title_content4 {
+    top: 20%;
+    color: rgba(200, 212, 226, 1);
+  }
+  
+  /* 图标标签样式 */
+  .bosgeo-iconContainer1 {
+    flex-direction: column;
+    align-items: center;
+    width: 184px;
+    height: 140px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .bosgeo-icon1_name {
+    width: 184px;
+    height: 48px;
+    background: url("../images/label/图标样式1-textBorder.png") no-repeat center;
+    background-size: contain;
+  }
+  .bosgeo-icon1_name_content {
+    width: 184px;
+    height: 48px;
+    line-height: 43px;
+    text-align: center;
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: rgba(200, 212, 226, 1);
+  }
+  .bosgeo-icon1_labelIconBox {
+    margin-top: -10px;
+    width: 32px;
+    height: 40px;
+    background: url("../images/label/图标样式1-iconBox.png") no-repeat center;
+    background-size: contain;
+    position: relative;
+  }
+  .bosgeo-icon1_labelIcon {
+    position: absolute;
+    top: 18%;
+    left: 22%;
+    width: 18px;
+    height: 18px;
+    background: url("../images/label/labelIcon1.png") no-repeat center;
+    background-size: contain;
+  }
+  .bosgeo-icon1_labelIconLine {
+    width: 16px;
+    height: 58px;
+    background: url("../images/label/图标样式1-iconLine.png") no-repeat center;
+    background-size: contain;
+  }
+  
+  .bosgeo-iconContainer2{
+    width: 178px;
+    height: 126px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bosgeo-iconContainer2-1 {
+    background: url("../images/label/图标样式2-1.png") no-repeat center;
+    background-size: contain;
+  }
+  .bosgeo-iconContainer2-2 {
+    background: url("../images/label/图标样式2-2.png") no-repeat center;
+    background-size: contain;
+  }
+  .bosgeo-iconContainer2-3 {
+    background: url("../images/label/图标样式2-3.png") no-repeat center;
+    background-size: contain;
+  }
+  
+  .bosgeo-icon_name2 {
+    position: absolute;
+    top: -1.2%;
+    left: 20%;
+    width: 178px;
+    overflow: hidden;
+    line-height: 29px;
+    font-size: 13px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: rgba(255, 65, 67, 1);
+  }
+  
+  .bosgeo-iconContainer3{
+    display: flex;
+    width: 200px;
+    height: 42px;
+    overflow: hidden;
+  }
+  .bosgeo-icon3_labelIconBox {
+    width: 46px;
+    height: 50px;
+    background: url("../images/label/图标样式3-iconBox.png") no-repeat center;
+    background-size: contain;
+    position: relative;
+  }
+  .bosgeo-icon3_labelIcon {
+    position: absolute;
+    top: 22%;
+    left: 28%;
+    width: 18px;
+    height: 18px;
+    background: url("../images/label/labelIcon2.png") no-repeat center;
+    background-size: contain;
+  }
+  .bosgeo-icon3_name {
+    width: 186px;
+    height: 48px;
+    margin-left: -30px;
+    margin-top: -2px;
+    background: url("../images/label/图标样式3-textBorder.png") no-repeat center;
+    background-size: contain;
+    line-height: 41px;
+    font-size: 13px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: rgba(200, 212, 226, 1);
+    text-align: center;
+  }
+  
+  .bosgeo-iconContainer4{
+    display: flex;
+    width: 210px;
+    height: 50px;
+    overflow: hidden;
+  }
+  .bosgeo-icon4_labelIconBox {
+    width: 36px;
+    height: 50px;
+    background: url("../images/label/图标样式1-iconBox.png") no-repeat center;
+    background-size: contain;
+    position: relative;
+  }
+  .bosgeo-icon4_labelIcon {
+    position: absolute;
+    top: 21%;
+    left: 25%;
+    width: 18px;
+    height: 18px;
+    background: url("../images/label/labelIcon3.png") no-repeat center;
+    background-size: contain;
+  }
+  .bosgeo-icon4_name {
+    width: 186px;
+    height: 48px;
+    margin-left: -10px;
+    margin-top: -2px;
+    background: url("../images/label/图标样式4-textBorder.png") no-repeat center;
+    background-size: contain;
+    line-height: 41px;
+    font-size: 13px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: rgba(200, 212, 226, 1);
+    text-align: center;
+  }
+  .bosgeo-icon-normal-1 {
+    background: url("../images/label/labelIcon1.png") no-repeat center;
+    background-size: contain;
+  }
+  
+  .bosgeo-icon-normal-2 {
+    background: url("../images/label/labelIcon2.png") no-repeat center;
+    background-size: contain;
+  }
+  
+  .bosgeo-icon-normal-3 {
+    background: url("../images/label/labelIcon3.png") no-repeat center;
+    background-size: contain;
+  }
+  
+  .bosgeo-icon-normal-4 {
+    background: url("../images/label/labelIcon4.png") no-repeat center;
+    background-size: contain;
+  }
+  
+  .bosgeo-icon-normal-5 {
+    background: url("../images/label/labelIcon5.png") no-repeat center;
+    background-size: contain;
+  }
+  
+  .bosgeo-icon-normal-6 {
+    background: url("../images/label/labelIcon6.png") no-repeat center;
+    background-size: contain;
+  }
+  

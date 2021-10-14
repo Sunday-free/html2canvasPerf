@@ -1,0 +1,143 @@
+/*设置按钮样式*/
+.bosgeo-settings{
+    width: 64px;
+    height: 50px;
+    color: #FFFFFF;
+    background: #2A333E;
+}
+.bosgeo-settings .wrapper{
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin: 10px 17px;
+}
+.bosgeo-settings .icon{
+    font-size: 22px;
+}
+/*设置菜单样式*/
+#bosgeo-setmenu {
+    left:1120px;
+}
+#bosgeo-setmenu .header{
+    display: flex;
+    height: 40px;
+    border-bottom: 1px solid #233953;
+}
+#bosgeo-setmenu .header .image{
+    width: 12px;
+    height: 12px;
+    margin: 14px 8px 14px 10px;
+    background: linear-gradient(270deg, #338EFF 0%, rgba(51, 142, 255, 0) 100%);
+}
+#bosgeo-setmenu .header .title{
+    width: 56px;
+    height: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    margin: 10px 0;
+}
+#bosgeo-setmenu .header .closeSetMenu{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 16px;
+    margin:15px 0;
+    cursor: pointer;
+}
+
+#bosgeo-setmenu .select{
+    margin: 10px 10px;
+    width: 326px;
+    height: 26px;
+    display: flex;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+    border: 1px solid;
+    border-image: linear-gradient(270deg, rgba(87, 122, 156, 0), rgba(44, 68, 99, 1)) 1 1;
+}
+#bosgeo-setmenu .select .image{
+    width: 3px;
+    height: 12px;
+    margin: 7px 10px;
+    background: #338EFF;
+}
+#bosgeo-setmenu .select .text{
+    height: 16px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #C8D4E2;
+    line-height: 16px;
+    margin: 5px 0;
+}
+
+#bosgeo-setmenu .content{
+    width: 306px;
+    height: 230px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+    margin: 10px 12px ;
+    padding: 10px;
+
+}
+#bosgeo-setmenu .content .item{
+    position: relative;
+    display: flex;
+    padding: 0;
+    margin: 10px;
+    color: #338EFF;
+}
+#bosgeo-setmenu .content .item .icon{
+    color: inherit !important;
+
+}
+#bosgeo-setmenu .content .first{
+    margin-top:0;
+}
+#bosgeo-setmenu .content .itemImage{
+    width: 30px;
+    height: 30px;
+}
+#bosgeo-setmenu .content .itemImage .icon{
+    font-size:22px ;
+    color: #338EFF;
+}
+#bosgeo-setmenu .content .name{
+    height: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    padding-top: 2px;
+    margin-left: 10px;
+}
+#bosgeo-setmenu .content .openFlag{
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+#bosgeo-setmenu .bottom{
+    padding: 0;
+    margin: 0;
+}
+#bosgeo-setmenu .bottom .btn {
+    width: 126px;
+    height: 28px;
+    background-color: #338EFF;
+    border-radius: 4px;
+    margin-left: 112px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+#bosgeo-setmenu .bottom .btn:active {
+    width: 120px;
+    height: 26px;
+    background: #338EFF;
+    margin-left: 114px;
+    opacity: 0.9;
+}
+
+
+

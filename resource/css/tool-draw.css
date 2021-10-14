@@ -1,0 +1,180 @@
+
+/*绘制弹层样式*/
+#bosgeo-draw  {
+    /*display: block;*/
+    left: 900px;
+    height: 556px;
+}
+#bosgeo-draw .type .wrapper {
+    display: flex;
+
+}
+#bosgeo-draw .type .wrapper .common{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+    border: 1px solid #338EFF;
+    padding: 7px;
+    position: relative;
+}
+#bosgeo-draw .type .wrapper .common .iconfont{
+    font-size: 60px;
+
+}
+
+#bosgeo-draw .type .wrapper .common:before{
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    width: 60px;
+    height: 60px;
+    border: 1px dashed white;
+
+}
+
+#bosgeo-draw .type .wrapper .polygon{
+    margin: 0 10px;
+
+}
+
+
+#bosgeo-draw .type .text .common{
+    height: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+    margin: 0 29px;
+}
+#bosgeo-draw .type .text .line{
+    margin-left: 29px;
+}
+#bosgeo-draw .type .text .polygon{
+    margin: 0 39px;
+}
+
+#bosgeo-draw .config{
+    width: 306px;
+    height: 154px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+    margin-top: 15px;
+    padding: 10px;
+}
+#bosgeo-draw .config .row{
+    display: flex;
+    height: 28px;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 10px;
+}
+#bosgeo-draw .config .row .input{
+    border: none;
+    padding-left: 10px;
+    background: transparent;
+    width: 100px;
+    color: #C8D4E2;
+
+}
+#bosgeo-draw .config .row div{
+    display: flex;
+}
+#bosgeo-draw .config .row .left{
+    margin-right: 10px;
+}
+#bosgeo-draw .config .row .right{
+    margin-left: 10px;
+}
+#bosgeo-draw .config .row  .text{
+    display: inline-block;
+    margin-top: 6px;
+}
+#bosgeo-draw .config .btnWrapper{
+    margin-top: 20px;
+    display: flex;
+}
+#bosgeo-draw .config  .btnWrapper .btn{
+    width: 78px;
+    height: 28px;
+    background-color: #338EFF;
+    border-radius: 4px;
+    border: none;
+    margin-left: 34px;
+}
+
+#bosgeo-draw .drawRecord .wrapper {
+    display: flex;
+    margin: 10px 0;
+}
+#bosgeo-draw .drawRecord .wrapper .title{
+    height: 14px;
+    font-size: 10px;
+    line-height: 14px;
+}
+#bosgeo-draw .drawRecord .wrapper .icon{
+    font-size: 12px;
+    margin: 1px 10px;
+    transform: scale(0.83);
+}
+
+#bosgeo-draw .drawRecord  .content{
+    width: 306px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+    padding: 10px;
+
+}
+#bosgeo-draw .drawRecord  .content .row{
+    width: 286px;
+    height: 56px;
+    background: rgba(70, 80, 94, 0.6);
+    border-radius: 4px;
+    line-height: 16px;
+    padding: 6px 10px 10px 10px;
+    font-size: 12px;
+
+}
+#bosgeo-draw .drawRecord  .content .row .name{
+    height  : 16px;
+    margin-bottom: 20px;
+}
+#bosgeo-draw .drawRecord  .content .row .name .icon{
+    margin: 0 67px 0 10px;
+}
+#bosgeo-draw .drawRecord  .content .row .edit{
+    height: 16px;
+    display: flex;
+}
+#bosgeo-draw .drawRecord  .content .row .edit .location{
+    width: 64px;
+    height: 20px;
+    background: #424F60;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-right: 84px;
+}
+#bosgeo-draw .drawRecord  .content .row .edit .location .icon{
+    font-size: 12px;
+    margin: 3px 8px;
+    display: inline-block;
+
+}
+#bosgeo-draw .drawRecord  .content .row .edit .iconWrapper {
+    display: flex;
+}
+#bosgeo-draw .drawRecord  .content .row .edit .iconWrapper div{
+    margin: 0 4px;
+    width: 20px;
+    height: 20px;
+}
+#bosgeo-draw .drawRecord  .content .row .edit .iconWrapper .visible{
+    margin-left: 28px;
+
+}
+#bosgeo-draw .drawRecord  .content .row .edit .iconWrapper .iconfont{
+    font-size: 14px;
+    line-height: 20px;
+}
+

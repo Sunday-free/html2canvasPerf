@@ -1,0 +1,66 @@
+.feature-info-panel {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    border-radius: 6px;
+    padding: 5px;
+    background-color: rgba(17, 17, 17, 0.76);
+}
+.feature-info-panel .close {
+    position: absolute;
+    right: 6px;
+    width: 19px;
+    height: 15px;
+    background: url('../images/close_white.png') no-repeat center;
+    background-size: 100%;
+    cursor: pointer;
+    z-index: 2;
+}
+.feature-info-panel .link-button {
+    top: 35px;
+    right: 40px;
+    text-align: center;
+    cursor: pointer;
+    color: #04a8f7;
+    z-index: 2;
+}
+.feature-info-panel .arrow {
+    position: absolute;
+    left: calc(40%);
+    top: 100%;
+    border: 10px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.7);
+}
+.feature-info-panel .title {
+    margin: 2px;
+    color: #ffa13b;
+    text-align: center;
+    font-size: 14px;
+    height: 11px;
+}
+.feature-info-panel .content .table {
+    display: block;
+    max-width: 300px;
+    max-height: 340px;
+    padding: 6px;
+    border: none;
+    overflow: auto;
+    font-size: 14px;
+}
+.feature-info-panel .content td {
+    min-width: 80px;
+    padding: 2px 2px;
+    border: 1px solid #d2cccc;
+    color: #d2cccc;
+    white-space: nowrap;
+}
+.feature-info-panel .content .icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-bottom: -4px;
+    margin-right: 4px;
+}
+  

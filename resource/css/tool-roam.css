@@ -1,0 +1,360 @@
+/*漫游样式*/
+#bosgeo-roam{
+    left:1000px;
+    /*display: block;*/
+
+}
+#bosgeo-roam .mode {
+    margin: 10px 0;
+    display: flex;
+}
+#bosgeo-roam .mode .common {
+    width: 74px;
+    height: 72px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+}
+#bosgeo-roam .mode .common  .icon{
+    margin:6px 7px;
+    font-size: 53px;
+    position: relative;
+    border: 1px dashed gray;
+    display: inline-block;
+}
+#bosgeo-roam .mode .handroam{
+    border: 1px solid #338EFF;
+    color: #338EFF;
+}
+#bosgeo-roam .mode .handroam .icon{
+    border: 1px dashed #338EFF;
+
+}
+#bosgeo-roam .mode .routeroam{
+    margin: 0 10px;
+    border: 1px solid #4A71A3;
+}
+#bosgeo-roam .mode .options .top{
+    display: flex;
+    margin-bottom: 8px;
+}
+#bosgeo-roam .mode .options .top div{
+    display: flex;
+}
+#bosgeo-roam .mode .options .top  .icon{
+    font-size: 16px;
+    margin: 0 3px;
+    display: inline-block;
+}
+#bosgeo-roam .mode .options .top .name{
+    width: 24px;
+    height: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    margin:0 8px ;
+    display: inline-block;
+}
+#bosgeo-roam .mode .bottom{
+    width: 158px;
+    height: 49px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+    border: 1px solid #2C4463;
+    display: flex;
+}
+#bosgeo-roam .mode .bottom .text{
+    width: 48px;
+    height: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 17px 9px;
+}
+#bosgeo-roam .mode .bottom .select{
+    width: 60px;
+    height: 28px;
+    background: rgba(216, 216, 216, 0);
+    border-radius: 4px;
+    border: 1px solid #5F656C;
+    margin: 11px 0;
+    display: flex;
+
+}
+#bosgeo-roam .mode .bottom .select .wrapper{
+    padding-left: 5px
+}
+#bosgeo-roam .mode .bottom .select .wrapper .arrowUp{
+    transform: rotate(180deg);
+}
+#bosgeo-roam .mode .bottom .select .iconfont{
+    font-size: 12px;
+}
+
+#bosgeo-roam .mode .bottom .select .input{
+    color: #C8D4E2;
+    width: 40px;
+    border: none;
+    padding-left: 6px;
+    background: transparent;
+
+}
+#bosgeo-roam .mode .bottom .unit{
+    height: 16px;
+    font-size: 12px;
+    line-height: 16px;
+
+    margin: 17px 9px;
+}
+
+#bosgeo-roam .description{
+    height: 16px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    display: flex;
+}
+#bosgeo-roam .description .left{
+    width: 48px;
+    margin: 0  30px 0 18px;
+    color: #338EFF;
+}
+
+#bosgeo-roam .tip{
+    width: 324px;
+    height: 24px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+    border: 1px solid;
+    border-image: linear-gradient(270deg, rgba(87, 122, 156, 0), rgba(44, 68, 99, 1)) 1 1;
+    margin: 13px 0 10px 0;
+    display: flex;
+}
+#bosgeo-roam .tip .image{
+    width: 3px;
+    height: 12px;
+    background: #338EFF;
+    margin: 7px 10px;
+}
+#bosgeo-roam .tip .text{
+    height: 16px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    margin-top: 5px;
+}
+
+
+#bosgeo-roam .operation .title{
+    height: 14px;
+    font-size: 10px;
+    line-height: 14px;
+    margin: 10px 0 6px 0;
+}
+#bosgeo-roam .operation .wrapper{
+    display: flex;
+}
+#bosgeo-roam .operation .wrapper .common {
+    width: 158px;
+    height: 60px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+#bosgeo-roam .operation .wrapper .common .content{
+    width: 68px;
+    height: 44px;
+    position: relative;
+    margin: 8px 45px;
+    color: black;
+
+}
+#bosgeo-roam .operation .wrapper .common .content:before{
+    position: absolute;
+    content: '';
+    width: inherit;
+    height: inherit;
+    border: 1px dashed gray;
+}
+#bosgeo-roam .operation .wrapper .common .content .line1{
+    margin:0 auto 2px 24px ;
+}
+#bosgeo-roam .operation .wrapper .common .content .line1 .btn{
+    padding-top: 2px;
+}
+
+#bosgeo-roam .operation .wrapper .common .content .line2{
+    display: flex;
+}
+#bosgeo-roam .operation .wrapper .common .content .line2 .middle{
+    margin: 0 4px;
+}
+#bosgeo-roam .operation .wrapper .common .content .btn{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+#bosgeo-roam .operation .wrapper .common .content .btn .iconfont{
+    font-size: 20px;
+    color: rgb(200,212,226);
+}
+#bosgeo-roam .operation .wrapper .left {
+    margin-right: 10px;
+}
+
+
+#bosgeo-roam .operation .bottom {
+    width: 326px;
+    height: 24px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+}
+#bosgeo-roam .operation .bottom .left{
+    display: inline-block;
+    margin: 5px 0 5px 115px;
+    height: 14px;
+    font-size: 10px;
+    line-height: 14px;
+}
+#bosgeo-roam .operation .bottom .right{
+    display: inline-block;
+    margin-left: 10px;
+    height: 14px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #338EFF;
+}
+
+#bosgeo-roam .speed {
+    margin: 10px 0;
+}
+#bosgeo-roam .speed .text{
+    height: 14px;
+    font-size: 10px;
+    line-height: 14px;
+    display: inline-block;
+}
+#bosgeo-roam .speed .text .move{
+    margin-left: 128px;
+}
+#bosgeo-roam .speed .wrapper{
+    display: flex;
+    margin: 10px 0;
+}
+#bosgeo-roam .speed .common{
+    width: 158px;
+    height: 60px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+    display: flex;
+
+}
+#bosgeo-roam .speed .common .iconfont{
+   font-size: 20px;
+    color: rgb(200,212,226);
+}
+#bosgeo-roam .speed .left{
+    margin-right: 10px;
+}
+#bosgeo-roam .speed .common div{
+    width: 20px;
+    height: 20px;
+    margin-top: 20px;
+
+
+}
+#bosgeo-roam .speed .left .up{
+      margin: 20px 4px 20px 57px;
+      display: flex;
+  }
+#bosgeo-roam .speed .right .up{
+    margin: 20px 32px 20px 35px;
+    display: flex;
+}
+#bosgeo-roam .speed .common .down{
+    display: flex;
+}
+
+#bosgeo-roam .viewAngle .text{
+    height: 14px;
+    font-size: 10px;
+    line-height: 14px;
+    margin: 6px 0;
+}
+#bosgeo-roam .viewAngle .left{
+    width: 42px;
+    height: 43px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+    padding: 5px 58px 12px 58px;
+}
+#bosgeo-roam .viewAngle .left .iconfont{
+   font-size: 43px;
+}
+
+#bosgeo-roam .firstWrapper .autoRoamContent{
+    display: none;
+}
+#bosgeo-roam .firstWrapper .routeRoamContent{
+    display: block;
+}
+#bosgeo-roam .firstWrapper .routeRoamContent .routeName{
+    width: 326px;
+    height: 300px;
+    background: rgba(50, 60, 74, 0.6);
+    border-radius: 4px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#bosgeo-roam .firstWrapper .routeRoamContent .routeName .routeHeader{
+    display: flex;
+    margin-bottom: 16px;
+}
+#bosgeo-roam .firstWrapper .routeRoamContent .routeName .routeHeader .description{
+    color: #C8D4E2;
+    margin-top: 6px;
+}
+#bosgeo-roam .firstWrapper .routeRoamContent .routeName .routeHeader .input{
+    padding-left: 10px;
+    width: 100px;
+    color: #C8D4E2;
+    height: 28px;
+    background: rgba(216, 216, 216, 0);
+    border-radius: 4px;
+    border: 1px solid #5F656C;
+    margin-left:10px;
+    box-sizing: border-box;
+
+}
+#bosgeo-roam .firstWrapper .routeRoamContent .routeName .routeHeader .btn{
+    width: 64px;
+    height: 28px;
+    background: #338EFF;
+    border-radius: 4px;
+    border: none;
+    margin-left: 10px;
+}
+#bosgeo-roam .firstWrapper .routeRoamContent .routeName .routeHeader .btn:active {
+    width: 64px;
+    height: 28px;
+    background: #338EFF;
+    margin-left: 10px;
+    opacity: 0.9;
+}
+#bosgeo-roam .firstWrapper .routeRoamContent .routeName .view{
+    width: 306px;
+    height: 28px;
+    background: rgba(70, 80, 94, 0.6);
+    border-radius: 4px;
+    display: flex;
+    box-sizing : border-box;
+    margin: 10px 0;
+    padding: 6px;
+}
+#bosgeo-roam .firstWrapper .routeRoamContent .routeName  .view .name{
+    height: 16px;
+    font-size: 12px;
+    color: #C8D4E2;
+    line-height: 16px;
+}
+
+
