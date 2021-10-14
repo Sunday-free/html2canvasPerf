@@ -12,9 +12,6 @@ let htmlWebpackPlugin = new HTMLWebpackPlugin({
     publicPath: "/", //研发环境输出绝对路径
   });
   
-  let copyWebpackPlugin = new CopyWebpackPlugin([
-    { from: "./public/build", to: "build" },
-  ]);
 
 module.exports = {
     entry: {
@@ -72,22 +69,11 @@ module.exports = {
     plugins: [
         htmlWebpackPlugin,
         new CopyWebpackPlugin([
-          // { from: path.join(cesiumSource, "Assets"), to: "Assets" },
-          // { from: path.join(cesiumSource, cesiumWorkers), to: "Workers" },
-          // { from: path.join(cesiumSource, "ThirdParty"), to: "ThirdParty" },
-          // {from: path.join(cesiumSource, 'ThirdParty/draco_decoder.wasm', to: targetDir + 'ThirdParty/draco_decoder.wasm'},
-          // {from: path.join(cesiumSource, 'ThirdParty/Workers', to: targetDir + 'ThirdParty/Workers'},
-          // { from: path.join(cesiumSource, "Widgets"), to: "Widgets" },
           { from: "resource", to: "resource" },
-          // {from: 'src/geo/layer/workers', to: targetDir + 'Workers'},
-          // {from: 'app/assets', to: 'assets'},
         ]),
         new MiniCssExtractPlugin({
           filename: "index.[hash].css",
         }),
         new ScriptExtHtmlWebpackPlugin({}),
-        // new HtmlWebpackPlugin({
-        //   title: '开发环境'}),
-        // new CleanWebpackPlugin(['dist'])
       ],
 };

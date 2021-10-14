@@ -1,4 +1,6 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const {CleanWebpackPlugin} = require("clean-webpack-plugin")
 
 module.exports = {
     mode: "development",
@@ -9,7 +11,9 @@ module.exports = {
     output: {
       filename: '[name].js',// 生成的fiename需要与package.json中的main一致
       path: path.resolve(__dirname, 'dist'),
-      libraryTarget: 'commonjs',
+    },
+    resolve: {
+        extensions: [".ts", ".js"]
     },
     module: {
         rules: [
@@ -21,5 +25,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template:"./public/index.html"
+        }),
     ],
 };

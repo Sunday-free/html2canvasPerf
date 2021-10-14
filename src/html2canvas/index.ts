@@ -9,7 +9,6 @@ import { CacheStorage } from "./core/cache-storage";
 import { CanvasRenderer, RenderConfigurations, RenderOptions } from "./render/canvas/canvas-renderer";
 // import {ForeignObjectRenderer} from './render/canvas/foreignobject-renderer';
 import { Context, ContextOptions } from "./core/context";
-import { int } from "_css-line-break@2.0.1@css-line-break/dist/types/Trie";
 import {ElementContainer} from './dom/element-container';
 import {TextContainer} from './dom/text-container';
 
@@ -33,8 +32,8 @@ if (typeof window !== "undefined") {
 
 interface ElementData {
     elementStr: string;
-    width: int;
-    height: int;
+    width: number;
+    height: number;
 }
 
 // 传入参数：文本节点的class，内容
