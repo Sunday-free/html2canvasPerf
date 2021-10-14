@@ -1,0 +1,2 @@
+# html2canvasPerf
+优化html2canvas在cesium自定义标签中内存消耗过大卡死问题
