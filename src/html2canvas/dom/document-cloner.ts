@@ -71,7 +71,7 @@ export class DocumentCloner {
     }
 
     toIFrame(ownerDocument: Document, windowSize: Bounds): Promise<HTMLIFrameElement> {
-        // 把iframe放在id为BOSGeo-html2canvasIrameCollection的容器内 因为最多有11个iframe排版不好看
+        // 把iframe放在id为BOSGeo-html2canvasIframeCollection的容器内 因为最多有11个iframe排版不好看
         const iframe: HTMLIFrameElement = createIFrameContainer(ownerDocument, windowSize);
 
         if (!iframe.contentWindow) {
@@ -445,8 +445,8 @@ const createIFrameContainer = (ownerDocument: Document, bounds: Bounds): HTMLIFr
     cloneIframeContainer.height = bounds.height.toString();
     cloneIframeContainer.scrolling = 'no'; // ios won't scroll without it
     cloneIframeContainer.setAttribute(IGNORE_ATTRIBUTE, 'true');
-    // 把iframe放在id为BOSGeo-html2canvasIrameCollection的容器内 因为最多有11个iframe排版不好看
-    ownerDocument.getElementById("BOSGeo-html2canvasIrameCollection")?.appendChild(cloneIframeContainer)
+    // 把iframe放在id为BOSGeo-html2canvasIframeCollection的容器内 因为最多有11个iframe排版不好看
+    ownerDocument.getElementById("BOSGeo-html2canvasIframeCollection")?.appendChild(cloneIframeContainer)
     // ownerDocument.body.appendChild(cloneIframeContainer);
 
     return cloneIframeContainer;

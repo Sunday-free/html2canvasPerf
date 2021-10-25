@@ -1,6 +1,6 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const {CleanWebpackPlugin} = require("clean-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
     mode: "development",
@@ -9,8 +9,16 @@ module.exports = {
         html2canvas: "./src/html2canvas/index.ts"
     },
     output: {
-      filename: '[name].js',// 生成的fiename需要与package.json中的main一致
-      path: path.resolve(__dirname, 'dist'),
+        filename: chunkData => {
+            let chunkName = chunkData.chunk.name;
+            return chunkName === "index" ? "[name].js" : "[name]/[name].js";
+        },
+        // filename: 'geo-[name]-1.0.0.js',
+        library: "[name]",
+        libraryTarget: "commonjs2",
+        path: path.resolve(__dirname, "build"),
+        //需要编译Cesium中的多行字符串
+        sourcePrefix: ""
     },
     resolve: {
         extensions: [".ts", ".js"]
@@ -27,7 +35,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template:"./public/index.html"
-        }),
-    ],
+            template: "./public/index.html"
+        })
+    ]
 };

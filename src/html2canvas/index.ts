@@ -179,14 +179,7 @@ const renderElement = async (elementData: ElementData, textNodeClassAndContentAr
         // dom渲染为canvas
         canvas = await renderer.render(root);
 
-        let cache = {
-            context,
-            clonedElement,
-            elementData,
-            renderOptions,
-            root,
-            iframe
-        };
+        let cache = {context,clonedElement,elementData,renderOptions,root,iframe};
         cacheArr.push(cache);
         if(cacheArr.length>11) {
             cacheArr.shift()
@@ -197,7 +190,6 @@ const renderElement = async (elementData: ElementData, textNodeClassAndContentAr
         }
         html2canvasCollection.removeChild(element)
     } else {
-        console.log("缓存");
         let { context, clonedElement, renderOptions,root } = cache;
         // 修改节点文本
         changeTextNodes(context,clonedElement,root,textNodeClassAndContentArr)

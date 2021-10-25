@@ -48,7 +48,7 @@ module.exports = {
     devServer: {
       contentBase: path.join(__dirname, "build"),
       // host: "192.168.1.188",
-      port: 8015,
+      port: 8016,
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET,POST",
