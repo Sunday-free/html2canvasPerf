@@ -52,7 +52,6 @@ export class Parser {
         while (token.type === TokenType.WHITESPACE_TOKEN) {
             token = this.consumeToken();
         }
-        // console.log(token);
         if (token.type === TokenType.EOF_TOKEN) {
             throw new SyntaxError(`Error parsing CSS component value, unexpected EOF`);
         }

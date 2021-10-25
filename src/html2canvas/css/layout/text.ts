@@ -86,7 +86,6 @@ const createRange = (node: Text, offset: number, length: number): Range => {
 };
 
 const getRangeBounds = (context: Context, node: Text, offset: number, length: number): Bounds => {
-    // console.log(createRange(node, offset, length));
     return Bounds.fromClientRect(context, createRange(node, offset, length).getBoundingClientRect());
 };
 

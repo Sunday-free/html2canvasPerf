@@ -228,7 +228,6 @@ const changeTextNodes = (context:Context,clonedElement:HTMLElement,root: Element
             elementContainer.element.appendChild(textNode)
 
             elementContainer.textNodes.push(new TextContainer(context, textNode, elementContainer.styles));
-            // console.log(elementContainer);
         }else{
             throw new Error(`类名为${className}的元素不存在`);
         }
