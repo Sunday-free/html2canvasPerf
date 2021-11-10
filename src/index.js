@@ -4,28 +4,34 @@ console.log(html2canvas);
 let box2 = document.getElementById("box2");
 let date = new Date();
 let timestamp = date.getTime();
-let max = 2;
+let max = 20;
 async function renderList1() {
     for (let i = 0; i < max; i++) {
-        let elementStr = `<div class="pointBackg1">
-                            <div class="pointText pointText1"></div>
-                          </div>`;
-        let width = 164;
-        let height = 137;
+        let elementStr = `<div class="bosgeo-iconContainer1">
+                                <div class="bosgeo-icon1_name">
+                                    <div class="bosgeo-icon1_name_content"></div>
+                                </div>
+                                <div class="bosgeo-icon1_labelIconBox">
+                                    <div class="bosgeo-icon1_labelIcon"></div>
+                                </div>
+                                <div class="bosgeo-icon1_labelIconLine"></div>
+                            </div>`;
+        let width = 184;
+        let height = 140;
         let elementData = {
             elementStr,
             width,
             height
         };
         let textNodeClassAndContent = {
-            className: "pointText pointText1",
-            content: "普通标签" + (i + 1)
+            className: "bosgeo-icon1_name_content",
+            content: "图标标签" + (i + 1)
         };
         let canvas = await html2canvas.render(elementData, [textNodeClassAndContent], {
             backgroundColor: "transparent"
         });
-        canvas.style.transform = 'scale(1.1)'
-        canvas.style.transformOrigin = 'bootom'
+        // canvas.style.transform = 'scale(1.1)'
+        // canvas.style.transformOrigin = 'bootom'
         document.body.appendChild(canvas);
         // .then(function(canvas) {
         //     // let date2 = new Date()

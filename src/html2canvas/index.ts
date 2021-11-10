@@ -242,8 +242,10 @@ const getElementContainerByClassName = (root: ElementContainer ,className:string
         const element = root.elements[j];
         if(element.className === className){
             result = element
+            break;
         }else if(element.elements.length>0){
             result = getElementContainerByClassName(element,className)
+            if(result && result.className === className) return result;
         }
     }
     return result
