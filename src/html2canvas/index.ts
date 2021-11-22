@@ -21,19 +21,13 @@ export type Options = CloneOptions &
         removeContainer?: boolean;
     };
 
-const render = (elementData: ElementData, textNodeClassAndContentArr: Array<TextNodeClassAndContent>, options: Partial<Options> = {}): Promise<HTMLCanvasElement> => {
-    return renderElement(elementData, textNodeClassAndContentArr, options);
+const render = (htmlStr: string, textNodeClassAndContentArr: Array<TextNodeClassAndContent>, options: Partial<Options> = {}): Promise<HTMLCanvasElement> => {
+    return renderElement(htmlStr, textNodeClassAndContentArr, options);
 };
 
 
 if (typeof window !== "undefined") {
     CacheStorage.setContext(window);
-}
-
-interface ElementData {
-    elementStr: string;
-    width: number;
-    height: number;
 }
 
 // 传入参数：文本节点的class，内容
@@ -46,10 +40,10 @@ interface TextNodeClassAndContent {
 let cacheArr: {
     context: Context;
     clonedElement: HTMLElement;
-    elementData: ElementData;
+    htmlStr: String;
     renderOptions: RenderConfigurations;
     root: ElementContainer;
-    iframe:HTMLIFrameElement
+    iframe:HTMLIFrameElement;
 }[] = [];
 
 const destoryCache = ():void=>{
@@ -63,13 +57,13 @@ const destoryCache = ():void=>{
 export default {render,cacheArr,destoryCache};
 
 // 渲染传入的Dom元素 element: HTMLElement,
-const renderElement = async (elementData: ElementData, textNodeClassAndContentArr: Array<TextNodeClassAndContent>, opts: Partial<Options>): Promise<HTMLCanvasElement> => {
+const renderElement = async (htmlStr: string, textNodeClassAndContentArr: Array<TextNodeClassAndContent>, opts: Partial<Options>): Promise<HTMLCanvasElement> => {
     // 判断是否已经转换过
     let flag = false;
     let cache = cacheArr[0]; //默认第一个
     for (let i = 0; i < cacheArr.length; i++) {
         cache = cacheArr[i];
-        if (elementData.elementStr === cache.elementData.elementStr) {
+        if (htmlStr === cache.htmlStr) {
             flag = true;
             break;
         }
@@ -78,9 +72,7 @@ const renderElement = async (elementData: ElementData, textNodeClassAndContentAr
     // 如果没有缓存
     if (!flag) {
         let element = document.createElement("div");
-        element.style.width = elementData.width + "px";
-        element.style.height = elementData.height + "px";
-        element.innerHTML = elementData.elementStr;
+        element.innerHTML = htmlStr;
         element.className = 'BOSGeo-html2canvasTestConatiner'
 
         let html2canvasCollection = document.getElementById("BOSGeo-html2canvasCollection");
@@ -89,6 +81,17 @@ const renderElement = async (elementData: ElementData, textNodeClassAndContentAr
             return Promise.reject("Element conatiner not exist");
         }
         html2canvasCollection.appendChild(element);
+        
+        // 计算子节点高宽 来设置父节点高宽 --- > clonedDocument --- > canvas高宽
+        let childrenWidth = 0;
+        let childrenHeight = 0;
+        for (let i = 0; i < element.children.length; i++) {
+            const child = element.children[i];
+            childrenWidth += child.clientWidth;
+            childrenHeight += child.clientHeight;
+        }
+        element.style.width = childrenWidth + "px";
+        element.style.height = childrenHeight + "px";
 
         if (!element || typeof element !== "object") {
             return Promise.reject("Invalid element provided as first argument");
@@ -165,6 +168,7 @@ const renderElement = async (elementData: ElementData, textNodeClassAndContentAr
 
         // 修改节点文本
         changeNodeTextContent(clonedElement,textNodeClassAndContentArr)
+        
         // 获取节点树数据，传给CanvasRenderer实例的render方法
         const root = parseTree(context, clonedElement);
 
@@ -179,7 +183,7 @@ const renderElement = async (elementData: ElementData, textNodeClassAndContentAr
         // dom渲染为canvas
         canvas = await renderer.render(root);
 
-        let cache = {context,clonedElement,elementData,renderOptions,root,iframe};
+        let cache = {context,clonedElement,htmlStr,renderOptions,root,iframe};
         cacheArr.push(cache);
         if(cacheArr.length>11) {
             cacheArr.shift()

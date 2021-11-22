@@ -7,7 +7,7 @@ let timestamp = date.getTime();
 let max = 20;
 async function renderList1() {
     for (let i = 0; i < max; i++) {
-        let elementStr = `<div class="bosgeo-iconContainer1">
+        let htmlStr = `<div class="bosgeo-iconContainer1">
                                 <div class="bosgeo-icon1_name">
                                     <div class="bosgeo-icon1_name_content"></div>
                                 </div>
@@ -16,22 +16,13 @@ async function renderList1() {
                                 </div>
                                 <div class="bosgeo-icon1_labelIconLine"></div>
                             </div>`;
-        let width = 184;
-        let height = 140;
-        let elementData = {
-            elementStr,
-            width,
-            height
-        };
         let textNodeClassAndContent = {
             className: "bosgeo-icon1_name_content",
             content: "图标标签" + (i + 1)
         };
-        let canvas = await html2canvas.render(elementData, [textNodeClassAndContent], {
+        let canvas = await html2canvas.render(htmlStr, [textNodeClassAndContent], {
             backgroundColor: "transparent"
         });
-        // canvas.style.transform = 'scale(1.1)'
-        // canvas.style.transformOrigin = 'bootom'
         document.body.appendChild(canvas);
         // .then(function(canvas) {
         //     // let date2 = new Date()
